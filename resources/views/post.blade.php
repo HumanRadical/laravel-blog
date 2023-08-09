@@ -9,10 +9,10 @@
 <body>
     <article>
         <h1>
-            <?= $post->title; ?>
+             {{ $post->title }} 
         </h1>
         <p>
-            <?= $post->body; ?>
+             {{ $post->body }} 
         </p>
     </article>
 
