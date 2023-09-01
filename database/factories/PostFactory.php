@@ -24,7 +24,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'excerpt' => fake()->paragraph(),
-            'body' => implode('<br></br>', fake()->paragraphs(10))
+            'body' => implode('<br/><br/>', fake()->paragraphs(10))
         ];
     }
 }
