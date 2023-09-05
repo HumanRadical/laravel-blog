@@ -32,12 +32,15 @@
             </div>
 
             <footer class="flex justify-between items-center mt-8">
-                <div class="flex items-center text-sm">
-                    <img src="/images/lary-avatar.svg" alt="Lary avatar">
-                    <div class="ml-3">
-                        <h5 class="font-bold">{{ $post->author->name }}</h5>
+                <a href="/?author={{ $post->author->username }}">
+                    <div class="flex items-center text-sm">
+                        <img src="/images/lary-avatar.svg" alt="Lary avatar">
+                        <div class="ml-3">
+                            <h5 class="font-bold">{{ $post->author->name }}</h5>
+                            <h6 class="text-gray-400 text-xs">{{'@' . $post->author->username }}</h6>
+                        </div>
                     </div>
-                </div>
+                </a>
 
                 <div>
                     <a href="/posts/{{ $post->slug }}"
