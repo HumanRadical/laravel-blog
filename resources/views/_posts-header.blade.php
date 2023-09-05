@@ -13,12 +13,12 @@
                 </button>
             </x-slot>
 
-            <x-dropdown-item href="/" :active="!request()->routeIs('category')">
+            <x-dropdown-item href="/" :active='request()->is("/")'>
                 All
             </x-dropdown-item>
 
             @foreach ($categories as $category)
-                <x-dropdown-item href="/?category={{ $category->slug }}" :active='request()->is("categories/{$category->slug}")'>
+                <x-dropdown-item href="/?category={{ $category->slug }}" :active='request()->is("?category={$category->slug}")'>
                     {{ $category->name }}
                 </x-dropdown-item>
             @endforeach
@@ -38,7 +38,7 @@
             </x-dropdown-item>
 
             @foreach ($authors as $author)
-                <x-dropdown-item href="/authors/{{ $author->username }}" :active='request()->is("authors/{$author->username}")'>
+                <x-dropdown-item href="/?author={{ $author->username }}" :active='request()->is("authors/{$author->username}")'>
                     {{ $author->name }}
                 </x-dropdown-item>
             @endforeach
