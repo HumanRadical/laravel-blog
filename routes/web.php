@@ -22,13 +22,13 @@ Route::get('/', function () {
         'categories' => Category::all(),
         'authors' => User::all()
     ]);
-});
+})->name('home');
 
 Route::get('/posts/{post:slug}', function (Post $post) {
     return view('post', [
         'post' => $post
     ]);
-});
+})->name('post');
 
 Route::get('/categories/{category:slug}', function (Category $category) {
     return view('posts', [
@@ -37,7 +37,7 @@ Route::get('/categories/{category:slug}', function (Category $category) {
         'categories' => Category::all(),
         'authors' => User::all()
     ]);
-});
+})->name('category');
 
 Route::get('/authors/{author:username}', function (User $author) {
     return view('posts', [
@@ -46,4 +46,4 @@ Route::get('/authors/{author:username}', function (User $author) {
         'currentAuthor' => $author,
         'authors' => User::all()
     ]);
-});
+})->name('author');
