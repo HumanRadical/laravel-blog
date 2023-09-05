@@ -6,12 +6,12 @@
         </button>
     </x-slot>
 
-    <x-dropdown-item href="/" :active="!request()->routeIs('author')">
+    <x-dropdown-item href="/?{{ http_build_query(request()->except('author')) }}" :active="!request()->routeIs('author')">
         All
     </x-dropdown-item>
 
     @foreach ($authors as $author)
-        <x-dropdown-item href="/?author={{ $author->username }}" :active='request()->is("authors/{$author->username}")'>
+        <x-dropdown-item href="/?author={{ $author->username }}&{{ http_build_query(request()->except('author')) }}" :active='request()->is("authors/{$author->username}")'>
             {{ $author->name }}
         </x-dropdown-item>
     @endforeach
