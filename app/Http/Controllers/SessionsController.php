@@ -17,15 +17,15 @@ class SessionsController extends Controller
             'username' => ['required', 'exists:users,username'],
             'password' => ['required']
         ]);
-
-        if (auth()->attempt($attributes)) {
-            session()->regenerate();
-            return redirect('/')->with('success', 'Welcome back!');
+        
+        if (!auth()->attempt($attributes)) {
+            throw ValidationException::withMessages([
+                'username' => 'We were not able to log you in with the provided credentials.'
+            ]);
         }
 
-        throw ValidationException::withMessages([
-            'username' => 'We were not able to log you in with the provided credentials.'
-        ]);
+        session()->regenerate();
+        return redirect('/')->with('success', 'Welcome back!');
     }
 
     public function destroy()
