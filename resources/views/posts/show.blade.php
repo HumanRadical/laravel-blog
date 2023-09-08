@@ -45,19 +45,21 @@
                 </div>
 
                 <section class="col-span-8 col-start-5 mt-10 space-y-6">
-                    <form method="POST" action="#" class="border border-gray-200 p-6 rounded-xl">
-                        @csrf
-                        <header class="flex items-center space-x-4">
-                            <img src="/images/lary-avatar.svg" alt="Lary avatar" width="40" height="40">
-                            <h2 class="font-semibold text-lg">Join the conversation!</h2>
-                        </header>
-                        <div class="mt-6">
-                            <textarea name="body" id="body" class="w-full text-sm focus:outline-none focus:ring p-3" rows="10" placeholder="What's on your mind?"></textarea>
-                        </div>
-                        <div class="text-right mt-6 pt-6 border-t boprder-gray-200">
-                            <button type="submit" class="bg-blue-500 text-white uppercase font-semibold text-sm py-2 px-10 rounded-2xl hover:bg-blue-600">Post</button>
-                        </div>
-                    </form>
+                    <x-panel>
+                        <form method="POST" action="#">
+                            @csrf
+                            <header class="flex items-center space-x-4">
+                                <img src="/images/lary-avatar.svg" alt="Lary avatar" width="40" height="40">
+                                <h2 class="font-semibold text-lg">Join the conversation!</h2>
+                            </header>
+                            <div class="mt-6">
+                                <textarea name="body" id="body" class="w-full text-sm focus:outline-none focus:ring p-3" rows="10" placeholder="What's on your mind?"></textarea>
+                            </div>
+                            <div class="text-right mt-6 pt-6 border-t boprder-gray-200">
+                                <button type="submit" class="bg-blue-500 text-white uppercase font-semibold text-sm py-2 px-10 rounded-2xl hover:bg-blue-600">Post</button>
+                            </div>
+                        </form>
+                    </x-panel>
 
                     @foreach ($post->comments as $comment)
                         <x-post-comment :comment="$comment"/>
