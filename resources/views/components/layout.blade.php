@@ -19,7 +19,7 @@
                 @auth
                     <form method="POST" action="/logout">
                         @csrf
-                        <button type="submit" class="text-xs font-bold uppercase">Logout</button>
+                        <button type="submit" class="text-xs font-bold uppercase">Log out</button>
                     </form>
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
