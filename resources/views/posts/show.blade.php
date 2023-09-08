@@ -63,7 +63,8 @@
                         </x-panel>
                     @else
                         <x-panel>
-                            <h2 class="font-semibold text-lg"><a href="/login" class="text-blue-500">Log in</a> to join the conversation!</h2>
+                            <h2 class="font-semibold text-lg">
+                                <a href="/login" class="text-blue-500 hover:underline">Log in</a> or <a href="/register" class="text-blue-500 hover:underline">Register</a> to join the conversation!</h2>
                         </x-panel>    
                     @endauth
 
