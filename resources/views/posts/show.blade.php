@@ -61,12 +61,11 @@
                                 </div>
                             </form>
                         </x-panel>
-                    @endauth
-                    @guest
+                    @else
                         <x-panel>
                             <h2 class="font-semibold text-lg"><a href="/login" class="text-blue-500">Log in</a> to join the conversation!</h2>
-                        </x-panel>
-                    @endguest
+                        </x-panel>    
+                    @endauth
 
                     @foreach ($post->comments->sortByDesc('created_at') as $comment)
                         <x-post-comment :comment="$comment"/>
