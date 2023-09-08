@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Post;
+use App\Models\Comment;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,8 +17,9 @@ class DatabaseSeeder extends Seeder
         // Category::truncate();
         // Post::truncate();
 
-        User::factory(5)->create();
+        User::factory(5)->create(['post_author' => true]);
         Category::factory(8)->create();
         Post::factory(50)->create();
+        Comment::factory(250)->create();
     }
 }

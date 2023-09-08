@@ -13,10 +13,12 @@
     </x-dropdown-item>
 
     @foreach ($authors as $author)
-        <x-dropdown-item 
-            href="/?author={{ $author->username }}&{{ http_build_query(request()->except('author', 'page')) }}" 
-            :active='request()->is("authors/{$author->username}")'
-            > {{ $author->name }}
-        </x-dropdown-item>
+        @if ($author->post_author)
+            <x-dropdown-item 
+                href="/?author={{ $author->username }}&{{ http_build_query(request()->except('author', 'page')) }}" 
+                :active='request()->is("authors/{$author->username}")'
+                > {{ $author->name }}
+            </x-dropdown-item> 
+        @endif
     @endforeach
 </x-dropdown>
