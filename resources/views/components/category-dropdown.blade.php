@@ -8,14 +8,14 @@
 
     <x-dropdown-item 
         href="/?{{ http_build_query(request()->except('category', 'page')) }}" 
-        :active="!request()->routeIs('category')" :active='request()->is("/")'
+        :active="!isset(request()->query()['category'])"
     > All
     </x-dropdown-item>
 
     @foreach ($categories as $category)
         <x-dropdown-item 
             href="/?category={{ $category->slug }}&{{ http_build_query(request()->except('category', 'page')) }}" 
-            :active='request()->is("?category={$category->slug}")'
+            :active="isset(request()->query()['category']) && request()->query()['category'] === $category->slug"
         > {{ $category->name }}
         </x-dropdown-item>
     @endforeach

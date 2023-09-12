@@ -8,7 +8,7 @@
 
     <x-dropdown-item 
         href="/?{{ http_build_query(request()->except('author', 'page')) }}" 
-        :active="!request()->routeIs('author')"
+        :active="!isset(request()->query()['author'])"
         > All
     </x-dropdown-item>
 
@@ -16,7 +16,7 @@
         @if ($author->post_author)
             <x-dropdown-item 
                 href="/?author={{ $author->username }}&{{ http_build_query(request()->except('author', 'page')) }}" 
-                :active='request()->is("authors/{$author->username}")'
+                :active="isset(request()->query()['author']) && request()->query()['author'] === $author->username"
                 > {{ $author->name }}
             </x-dropdown-item> 
         @endif
