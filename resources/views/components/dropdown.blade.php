@@ -1,5 +1,5 @@
-<div class="lg:flex lg:inline-flex lg:items-center relative bg-gray-100 rounded-xl">
-    <div x-data="{ show: false }" @click.away="show = false">
+<div {{ $attributes->merge() }}>
+    <div x-data="{ show: false }" @click.away="show = false" class="relative">
         <div @click="show = !show">
             {{ $trigger }}
         </div>
