@@ -24,6 +24,7 @@ class PostFactory extends Factory
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'excerpt' => fake()->paragraph(),
+            'thumbnail' => 'thumbnails/laravel.jpeg',
             'body' => implode('<br/><br/>', fake()->paragraphs(10))
         ];
     }

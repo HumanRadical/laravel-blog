@@ -27,11 +27,8 @@
                     <x-slot name="trigger">
                         <button class="text-xs font-bold uppercase bg-none">Welcome, {{ auth()->user()->name }}!</button>
                     </x-slot> 
-                    <x-dropdown-item href="/admin/dashboard">
+                    <x-dropdown-item href="/admin/posts">
                         Dashboard
-                    </x-dropdown-item>
-                    <x-dropdown-item href="/admin/posts/create">
-                        New Post
                     </x-dropdown-item>
                     <x-dropdown-item>
                         <form method="POST" action="/logout">

@@ -6,8 +6,8 @@
         type="text"
         name="{{ $name }}"
         id="{{ $name }}"
-        rows="12"
         required
-    >{{ old($name) }}</textarea>
+        {{ $attributes(["rows" => 12]) }}
+    >{{ old($name, $slot) }}</textarea>
     <x-form.error name="{{ $name }}" />
 </div>
